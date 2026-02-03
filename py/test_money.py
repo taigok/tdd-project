@@ -5,6 +5,9 @@ class Money:
   def __init__(self, amount, currency):
     self.amount = amount
     self.currency = currency
+  
+  def __eq__(self, other: object) -> bool:
+     return self.amount == other.amount and self.currency == other.currency
 
   def times(self, multiplier):
     return Money(self.amount * multiplier, self.currency)
@@ -17,7 +20,12 @@ class TestMoney(unittest.TestCase):
     fiver = Money(5, 'USD')
     tenner = fiver.times(2)
     self.assertEqual(10, tenner.amount)
-  
+
+  def testMultiplicationInDollars(self):
+    fiveDollars = Money(5, 'USD')
+    tenDollars = Money(10, 'USD')
+    self.assertEqual(tenDollars, fiveDollars.times(2))
+    
   def testMultiplicationInEuros(self):
     tenEuros = Money(10, 'EUR')
     twentyEuros = tenEuros.times(2)
