@@ -14,7 +14,8 @@
         "ms-python.python",
         "charliermarsh.ruff",
         "ms-pyright.pyright",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "openai.chatgpt"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
